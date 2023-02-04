@@ -14,7 +14,19 @@ def prune_tree(tree, keys_to_discard):
     Returns: (Tree) the pruned tree.
     '''
     
-    pass
+    if tree.key in keys_to_discard:
+        return 
+    
+    else:
+        new_tree = Tree(k = tree.key, v = tree.value)
+        for t in tree.children:
+            if not t.key in keys_to_discard:
+                new_tree.add_child(prune_tree(t, keys_to_discard))
+        return new_tree
+
+
+    
+
 
 
 #############################################################

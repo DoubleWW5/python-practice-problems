@@ -7,7 +7,15 @@ def sublists(lst):
     Returns: (list of list of values) list of all sublists of lst.
     """
 
-    pass
+    if len(lst) == 0:
+        return [[]] 
+    
+    else:
+        L = []
+        a = sublists(lst[1:])
+        for i in a:
+            L.append([lst[0]] + i)
+        return a + L
 
 
 #############################################################
